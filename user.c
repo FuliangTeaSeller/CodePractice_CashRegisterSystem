@@ -7,16 +7,16 @@ static User users[MAX_USER]; // all users
 static int totalUser = 0; // total user number
 
 static const char* filePath = "data/user.txt";
-static const char* header = "|ID         |Name       |Contact    |Address    |Balance    |";
-static const char* divide = "+-----------+-----------+-----------+-----------+-----------+";
+static const char* header = "|ID         |Name       |Balance    |";
+static const char* divide = "+-----------+-----------+-----------+";
 
 void pullUsers() {
     totalUser = 0;
     FILE* pf = fopen(filePath, "r");
     if (pf) {
-        while (fscanf(pf, "%s%s%s%s%s%lf", users[totalUser].id, \
-users[totalUser].name, users[totalUser].passwd, users[totalUser].contact, \
-users[totalUser].address, &(users[totalUser].balance)) != EOF) totalUser++;
+        while (fscanf(pf, "%s%s%s%lf", users[totalUser].id, \
+users[totalUser].name, users[totalUser].passwd,  \
+ &(users[totalUser].balance)) != EOF) totalUser++;
         fclose(pf);
     }
 }
@@ -24,8 +24,8 @@ users[totalUser].address, &(users[totalUser].balance)) != EOF) totalUser++;
 void pushUsers() {
     FILE* pf = fopen(filePath, "w");
     for (int i = 0; i < totalUser; i++)
-        fprintf(pf, "%s %s %s %s %s %.1f\n", users[i].id, users[i].name, users[i].passwd, \
-users[i].contact, users[i].address, users[i].balance);
+        fprintf(pf, "%s %s %s %.1f\n", users[i].id, users[i].name, users[i].passwd, \
+ users[i].balance);
     fclose(pf);
 }
 
@@ -34,8 +34,6 @@ User* getUser(int idex) { return users + idex; }
 void userInfo(int i) {
     printf("ID:        | %s\n", users[i].id);
     printf("Name:      | %s\n", users[i].name);
-    printf("Contact:   | %s\n", users[i].contact);
-    printf("Address:   | %s\n", users[i].address);
     printf("Balance:   | %.1f\n", users[i].balance);
 }
 
@@ -45,8 +43,8 @@ void userInfo(int i) {
  * @param i index of the user
  */
 static void printUser(int i) {
-    printf("|%-10s |%-10s |%-10s |%-10s |%-10.1f |\n", users[i].id, users[i].name, \
-users[i].contact, users[i].address, users[i].balance);
+    printf("|%-10s |%-10s |%-10.1f |\n", users[i].id, users[i].name, \
+ users[i].balance);
 }
 
 void printUsers() {

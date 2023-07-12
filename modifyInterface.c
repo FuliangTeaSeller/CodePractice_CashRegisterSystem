@@ -15,8 +15,9 @@ static void modify_passwd() {
     successMessage();
 }
 
-make_modify(contact, U, ser)
-make_modify(address, U, ser)
+//make_modify(contact, U, ser)
+//make_modify(address, U, ser)
 
-static HANDLER handler[] = {modify_passwd, modify_contact, modify_address};
+//static HANDLER handler[] = {modify_passwd, modify_contact, modify_address};
+static HANDLER handler[] = {modify_passwd};
 make_interface(M, ODIFY)

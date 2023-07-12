@@ -8,8 +8,6 @@ typedef struct {
     char id[MAX_LEN];
     char name[MAX_LEN];
     char passwd[MAX_LEN];
-    char contact[MAX_LEN];
-    char address[MAX_LEN];
     double balance;
 } User;
 

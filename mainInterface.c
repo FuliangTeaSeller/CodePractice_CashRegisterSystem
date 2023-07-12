@@ -18,10 +18,6 @@ static void USER_SignUp() {
     scanf("%s", u->name);
     printf("Please input your password: ");
     scanf("%s", u->passwd);
-    printf("Please input your phone number: ");
-    scanf("%s", u->contact);
-    printf("Please input your address: ");
-    scanf("%s", u->address);
     u->balance = 0;
     if (addUser(u)) successMessage();
     else failureMessage();
