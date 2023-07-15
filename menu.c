@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const int optionNum[MENU_NUM] = {4, 7, 4, 6, 6, 4, 4, 4};
+const int optionNum[MENU_NUM] = {4, 7, 4, 6, 6, 4, 2, 4};
 
 // visual prompts for different menus
 static const char* menuPrompts[MENU_NUM] = {"\
